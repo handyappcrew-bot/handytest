@@ -19,7 +19,6 @@ const SalaryPreview = ({ userName, month, totalAmount, stores }: SalaryPreviewPr
   const { navigateTo } = useNavToast();
   return (
     <div className="px-5">
-      {/* Header */}
       <div className="mb-3 flex items-end justify-between">
         <div>
           <p style={{ fontSize: 'clamp(17px, 4.5vw, 22px)', fontWeight: 700, letterSpacing: '-0.01em', color: '#1E1E1E' }}>{userName} 님의</p>
@@ -27,50 +26,36 @@ const SalaryPreview = ({ userName, month, totalAmount, stores }: SalaryPreviewPr
             이번달 <span style={{ color: '#4261FF' }}>예상 급여</span>에요
           </p>
         </div>
-        <button
-          onClick={() => navigateTo("/employee/salary", "급여관리로 이동했어요", { showLoading: true, forceAll: true })}
-          className="pressable flex items-center mb-0.5"
-          style={{ fontSize: '14px', color: '#9EA3AD' }}
-        >
+        <button onClick={() => navigateTo("/employee/salary", "급여관리로 이동했어요", { showLoading: true, forceAll: true })} className="pressable flex items-center text-muted-foreground mb-0.5" style={{ fontSize: '14px' }}>
           더보기 <ChevronRight className="h-3.5 w-3.5" />
         </button>
       </div>
-
-      {/* Card */}
-      <button
-        onClick={() => navigateTo("/employee/salary", "급여관리로 이동했어요", { showLoading: true, forceAll: true })}
-        className="pressable w-full text-left rounded-2xl bg-card p-5"
-        style={{ boxShadow: '2px 2px 12px rgba(0,0,0,0.06)' }}
-      >
+      <button onClick={() => navigateTo("/employee/salary", "급여관리로 이동했어요", { showLoading: true, forceAll: true })} className="pressable w-full text-left rounded-2xl bg-card p-5" style={{ boxShadow: '2px 2px 12px rgba(0,0,0,0.06)' }}>
         {/* Month label */}
-        <p style={{ fontSize: '14px', fontWeight: 600, color: '#9EA3AD' }}>₩ {month} 예상 급여</p>
+        <p className="text-base font-semibold text-[hsl(var(--schedule-shift-text))]">₩ {month} 예상 급여</p>
 
         {/* Total amount + arrow */}
         <div className="mt-1 flex items-center justify-between">
-          <p style={{ fontSize: '32px', fontWeight: 600, color: '#19191B', letterSpacing: '-0.02em' }}>
+          <p className="text-[32px] font-semibold text-[hsl(var(--schedule-day))]">
             {totalAmount.toLocaleString()}원
           </p>
-          <ChevronRight className="h-6 w-6" style={{ color: '#AAB4BF' }} />
+          <ChevronRight className="h-6 w-6 text-muted-foreground" />
         </div>
 
         {/* Store list */}
-        <div className="mt-4 flex flex-col gap-3">
-          {stores.map((store, idx) => (
-            <div key={idx} className="flex items-start justify-between">
+        <div className="mt-5">
+          {stores.map((store) => (
+            <div key={store.name} className="flex items-start justify-between">
               <div>
                 <div className="flex items-center gap-1.5">
-                  <div className="h-2 w-2 rounded-full" style={{ backgroundColor: '#4261FF', flexShrink: 0 }} />
-                  {store.name && (
-                    <span style={{ fontSize: '14px', fontWeight: 500, color: '#19191B' }}>{store.name}</span>
-                  )}
+                  <div className="h-2 w-2 rounded-full bg-[hsl(var(--role-badge))]" />
+                  <span className="text-base font-medium text-[hsl(var(--schedule-shift-text))]">{store.name}</span>
                 </div>
-                <p className="mt-0.5 ml-3.5" style={{ fontSize: '12px', fontWeight: 500, color: '#9EA3AD' }}>{store.dateRange}</p>
+                <p className="mt-0.5 ml-3.5 text-xs font-medium text-[hsl(var(--schedule-date-range))]">{store.dateRange}</p>
               </div>
               <div className="text-right">
-                <p style={{ fontSize: '14px', fontWeight: 600, color: '#19191B' }}>{store.amount.toLocaleString()}원</p>
-                <p style={{ fontSize: '12px', fontWeight: 500, color: '#9EA3AD' }}>
-                  {store.hours ? `총 ${store.hours} 근무` : '-'}
-                </p>
+                <p className="text-base font-semibold text-[hsl(var(--schedule-shift-text))]">{store.amount.toLocaleString()}원</p>
+                <p className="text-xs font-medium text-[hsl(var(--schedule-date-range))]">총 {store.hours} 근무</p>
               </div>
             </div>
           ))}
