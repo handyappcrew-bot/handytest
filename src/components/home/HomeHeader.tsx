@@ -14,7 +14,7 @@ const HomeHeader = ({ storeName, roleLabel, hasNotifications = false, onStoreCli
   const navigate = useNavigate();
 
   return (
-    <div className="flex items-center justify-between px-5 py-3 sticky top-0 z-10" style={{ backgroundColor: '#F7F7F8' }}>
+    <div className="flex items-center justify-between px-5 py-3 sticky top-0 z-10" style={{ backgroundColor: '#F4F5F8' }}>
       <button onClick={onStoreClick} className="pressable flex items-center gap-1">
         <span style={{ fontSize: '20px', fontWeight: 700, letterSpacing: '-0.01em', color: '#292B2E' }}>{storeName}</span>
         <span style={{ width: '33px', height: '20px', borderRadius: '10px', backgroundColor: '#4261FF', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: '11px', fontWeight: 600, letterSpacing: '-0.01em', color: '#FFFFFF', flexShrink: 0, marginLeft: '6px' }}>

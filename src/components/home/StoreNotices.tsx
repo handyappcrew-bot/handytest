@@ -23,13 +23,18 @@ const StoreNotices = ({ notices }: StoreNoticesProps) => {
             <span style={{ color: '#4261FF' }}>매장 공지</span>가 있어요
           </p>
         </div>
-        <button onClick={() => navigateTo("/board", "게시판으로 이동했어요", { showLoading: true, forceAll: true })} className="pressable flex items-center text-xs text-muted-foreground mb-0.5">
+        <button onClick={() => navigateTo("/board", "게시판으로 이동했어요", { showLoading: true, forceAll: true })} className="pressable flex items-center text-muted-foreground mb-0.5" style={{ fontSize: '14px' }}>
           더보기 <ChevronRight className="h-3.5 w-3.5" />
         </button>
       </div>
       <div className="flex flex-col gap-3">
         {notices.map((notice) => (
-          <div key={notice.id} className="pressable flex items-center gap-3 rounded-xl bg-card p-4 cursor-pointer" style={{ boxShadow: '2px 2px 12px rgba(0,0,0,0.06)' }} onClick={() => navigateTo(`/board/${notice.id}`, "게시판으로 이동했어요", { showLoading: true, forceAll: true })}>
+          <div
+            key={notice.id}
+            className="pressable flex items-center gap-3 rounded-xl bg-card p-4 cursor-pointer"
+            style={{ boxShadow: '2px 2px 12px rgba(0,0,0,0.06)' }}
+            onClick={() => navigateTo(`/board/${notice.id}`, "게시판으로 이동했어요", { showLoading: true, forceAll: true })}
+          >
             <div className="flex h-[50px] w-[50px] shrink-0 items-center justify-center rounded-full bg-muted">
               <User className="h-5 w-5 text-muted-foreground" />
             </div>
