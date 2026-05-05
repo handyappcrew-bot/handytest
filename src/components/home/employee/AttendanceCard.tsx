@@ -151,7 +151,7 @@ const AttendanceCard = ({
         return <span style={{ ...style, backgroundColor: 'hsl(var(--status-purple-light))', color: 'hsl(var(--status-purple))' }}>휴게중</span>;
       case "overtime":
       case "off_work":
-        return <span style={{ ...style, backgroundColor: 'rgba(66,97,255,0.1)', color: 'hsl(var(--primary))' }}>퇴근</span>;
+        return <span style={{ ...style, backgroundColor: '#EEF1FF', color: 'hsl(var(--primary))' }}>퇴근</span>;
     }
   };
 
