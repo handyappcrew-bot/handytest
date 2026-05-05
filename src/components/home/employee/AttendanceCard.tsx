@@ -134,7 +134,7 @@ const AttendanceCard = ({
 
   // Status badge
   const getBadge = () => {
-    const style = { minWidth: '57px', height: '28px', marginLeft: '0px', marginTop: '0px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', borderRadius: '9999px', fontSize: '14px', fontWeight: 600, letterSpacing: '-0.01em', padding: '0 12px' };
+    const style = { minWidth: '57px', height: '28px', marginLeft: '0px', marginTop: '0px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', borderRadius: '9999px', fontSize: '14px', fontWeight: 600, letterSpacing: '-0.01em', padding: '0 12px', border: 'none', outline: 'none', boxSizing: 'border-box' as const };
     switch (status) {
       case "holiday":
         return <span style={{ ...style, backgroundColor: 'hsl(var(--status-gray))', color: 'hsl(var(--status-gray-text))' }}>휴일</span>;
