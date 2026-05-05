@@ -163,7 +163,7 @@ const buildHistory = (
     const isHoliday = holidayDays.includes(day);
     const d = calendar[day];
     if (isHoliday) {
-      items.push({ date: `${month}월 ${day}일`, dayOfWeek, calendarDate: day, isHoliday: true, badges: [{ label: "휴무", bg: '#FFE8E8', color: '#FF5959' }], startTime: "00:00", endTime: "00:00", sheetStatus: "휴무", isClosed: false, breakMinutes: 0, overtimeMinutes: 0 });
+      items.push({ date: `${month}월 ${day}일`, dayOfWeek, calendarDate: day, isHoliday: true, badges: [{ label: "휴무", bg: '#F7F7F8', color: '#AAB4BF' }], startTime: "00:00", endTime: "00:00", sheetStatus: "휴무", isClosed: false, breakMinutes: 0, overtimeMinutes: 0 });
     } else if (d) {
       const isLate = d.status === "late";
       const isOvertime = (d.extraMinutes ?? 0) > 0;
