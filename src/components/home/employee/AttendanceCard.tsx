@@ -250,7 +250,7 @@ const AttendanceCard = ({
 
   // Time labels
   const leftTimeLabel = (status === "holiday" || status === "before_work" || status === "late" || status === "absent") ? scheduleStart : (clockInTime || scheduleStart);
-  const leftTimeColor = (status === "holiday" || status === "before_work" || status === "late") ? "text-muted-foreground" : status === "absent" ? "text-status-absent" : (status === "overtime" || status === "off_work") ? "text-primary" : "text-status-green";
+  const leftTimeColor = (status === "holiday" || status === "before_work" || status === "late") ? "hsl(var(--muted-foreground))" : status === "absent" ? "hsl(var(--status-absent))" : (status === "overtime" || status === "off_work") ? "hsl(var(--primary))" : "hsl(var(--status-green))";
   const showEndTime = !wasAbsent;
 
   return (
@@ -268,7 +268,7 @@ const AttendanceCard = ({
 
       {/* Time bar labels */}
       <div className="mb-1.5 flex items-center justify-between text-sm">
-        <span className={leftTimeColor}>{leftTimeLabel}</span>
+        <span style={{ color: leftTimeColor }}>{leftTimeLabel}</span>
         <span style={{
           width: '64px',
           height: '20px',
@@ -295,7 +295,7 @@ const AttendanceCard = ({
           <Clock style={{ width: '10px', height: '10px', flexShrink: 0 }} />
           {getDurationLabel()}
         </span>
-        {showEndTime && <span className={status === "overtime" || status === "off_work" ? "text-primary" : "text-muted-foreground"}>{scheduleEnd}</span>}
+        {showEndTime && <span style={{ color: (status === "overtime" || status === "off_work") ? "hsl(var(--primary))" : "hsl(var(--muted-foreground))" }}>{scheduleEnd}</span>}
       </div>
 
       {/* Progress bar */}
