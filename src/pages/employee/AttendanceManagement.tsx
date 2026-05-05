@@ -364,15 +364,15 @@ const AttendanceManagement = () => {
   console.log(calendarData[7]);
 
   return (
-    <div className="mx-auto min-h-screen max-w-lg bg-white pb-20">
+    <div className="mx-auto max-w-lg min-h-screen" style={{ backgroundColor: '#FFFFFF' }}>
       <div className="sticky top-0 z-10" style={{ backgroundColor: '#FFFFFF' }}>
         <div className="flex items-center gap-2 px-2 pt-4 pb-2">
-          <button onClick={() => navigate("/employee/home")} className="p-1"><ChevronLeft className="h-6 w-6 text-foreground" /></button>
+          <button onClick={() => navigate("/employee/home")} className="pressable p-1"><ChevronLeft className="h-6 w-6 text-foreground" /></button>
           <h1 style={{ fontSize: '20px', fontWeight: 700, letterSpacing: '-0.02em', color: '#19191B' }}>출근 관리</h1>
         </div>
         <div className="flex border-b border-border px-5" style={{ gap: '24px' }}>
           {(["calendar", "history", "edit_requests"] as AttendanceTab[]).map((tab) => (
-            <button key={tab} onClick={() => setActiveTab(tab)} className="py-3 relative whitespace-nowrap"
+            <button key={tab} onClick={() => setActiveTab(tab)} className="pressable py-3 relative whitespace-nowrap"
               style={{ fontSize: '16px', fontWeight: activeTab === tab ? 700 : 500, letterSpacing: '-0.02em', color: activeTab === tab ? '#4261FF' : '#AAB4BF' }}>
               {TAB_LABELS[tab]}
               {activeTab === tab && <div className="absolute bottom-0 left-0 w-full h-[3px] rounded-full" style={{ backgroundColor: '#4261FF' }} />}
@@ -385,9 +385,9 @@ const AttendanceManagement = () => {
       {activeTab === "calendar" && (
         <div className="pb-8">
           <div className="flex items-center justify-between px-5 py-4">
-            <button onClick={goToPrevMonth} className="p-1"><ChevronLeft className="h-5 w-5 text-foreground" /></button>
+            <button onClick={goToPrevMonth} className="pressable p-1"><ChevronLeft className="h-5 w-5 text-foreground" /></button>
             <span style={{ fontSize: '17px', fontWeight: 700, color: '#19191B' }}>{currentYear}년 {currentMonth}월 ▾</span>
-            <button onClick={goToNextMonth} className="p-1"><ChevronRight className="h-5 w-5 text-foreground" /></button>
+            <button onClick={goToNextMonth} className="pressable p-1"><ChevronRight className="h-5 w-5 text-foreground" /></button>
           </div>
           <div className="grid grid-cols-7 px-3">
             {DAYS_OF_WEEK.map((d, i) => (
@@ -424,7 +424,7 @@ const AttendanceManagement = () => {
                   const isHoliday = holidayDays.includes(day);
                   const isFuture = isFutureDay(day);
                   return (
-                    <div key={di} className="flex flex-col items-center py-1.5 min-h-[90px] cursor-pointer" onClick={() => openSheetByDay(day)}>
+                    <div key={di} className="pressable flex flex-col items-center py-1.5 min-h-[90px] cursor-pointer" onClick={() => openSheetByDay(day)}>
                       <div style={{ height: '22px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '4px' }}>
                         <span style={{ fontSize: '14px', fontWeight: 500, letterSpacing: '-0.02em', color: isToday ? '#FFFFFF' : isSunday ? '#FF5959' : isSaturday ? '#5DB1FF' : '#70737B', ...(isToday ? { backgroundColor: '#4261FF', borderRadius: '10px', minWidth: '40px', width: '40px', height: '22px', display: 'flex', alignItems: 'center', justifyContent: 'center' } : {}) }}>{day}</span>
                       </div>
@@ -457,14 +457,14 @@ const AttendanceManagement = () => {
         <div className="pb-8">
           <div className="flex items-center justify-between px-5 py-4">
             <div className="flex items-center gap-2">
-              <button onClick={goToPrevMonth} className="p-1"><ChevronLeft className="h-5 w-5 text-foreground" /></button>
+              <button onClick={goToPrevMonth} className="pressable p-1"><ChevronLeft className="h-5 w-5 text-foreground" /></button>
               <span style={{ fontSize: '17px', fontWeight: 700, color: '#19191B' }}>{currentYear}년 {currentMonth}월 ▾</span>
-              <button onClick={goToNextMonth} className="p-1"><ChevronRight className="h-5 w-5 text-foreground" /></button>
+              <button onClick={goToNextMonth} className="pressable p-1"><ChevronRight className="h-5 w-5 text-foreground" /></button>
             </div>
           </div>
           <div className="divide-y divide-border">
             {historyItems.map((item, idx) => (
-              <div key={idx} className="flex items-center justify-between px-5 py-4 cursor-pointer" onClick={() => openSheetByDay(item.calendarDate)}>
+              <div key={idx} className="pressable flex items-center justify-between px-5 py-4 cursor-pointer" onClick={() => openSheetByDay(item.calendarDate)}>
                 <div className="flex-1">
                   <p className="text-[15px] font-semibold text-foreground">{item.date} ({item.dayOfWeek})</p>
                   <div className="flex items-center gap-1.5 mt-1 flex-wrap">
@@ -487,7 +487,7 @@ const AttendanceManagement = () => {
 
       {/* 수정 요청 내역 탭 */}
       {activeTab === "edit_requests" && (
-        <div className="pb-8" style={{ backgroundColor: '#F7F7F8', minHeight: '100vh' }}>
+        <div className="pb-8" style={{ backgroundColor: '#F7F7F8' }}>
           <div className="flex px-5 py-3 overflow-x-auto" style={{ gap: '8px' }}>
             {FILTER_TABS.map((f) => {
               const isActive = filterTab === f;
@@ -511,13 +511,13 @@ const AttendanceManagement = () => {
                       <span style={badgeStyle(REQUEST_TYPE_STYLE.bg, REQUEST_TYPE_STYLE.color)}>{req.requestType}</span>
                     </div>
                     {canDelete && (
-                      <button onClick={() => setDeleteTargetId(req.id)} className="p-1">
+                      <button onClick={() => setDeleteTargetId(req.id)} className="pressable p-1">
                         <Trash2 className="h-[18px] w-[18px]" style={{ color: '#AAB4BF' }} />
                       </button>
                     )}
                   </div>
                   <p style={{ fontSize: '13px', fontWeight: 500, color: '#AAB4BF', letterSpacing: '-0.02em', marginBottom: '6px' }}>기존 일정</p>
-                  <div className="rounded-xl px-4 py-3 mb-3" style={{ backgroundColor: '#F7F7F8' }}>
+                  <div className="rounded-2xl px-5 py-4 mb-3" style={{ backgroundColor: '#F5F6F8' }}>
                     <div className="flex items-center gap-2 flex-wrap">
                       {req.original.label && <span style={badgeStyle('#F7F7F8', '#AAB4BF')}>{req.original.label}</span>}
                       <p style={{ fontSize: '13px', color: '#70737B', letterSpacing: '-0.02em' }}>
