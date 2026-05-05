@@ -113,20 +113,27 @@ const AttendanceDetailSheet = ({ open, detail, onClose, onRequestEdit }: Attenda
 
           {/* Large time display */}
           <div className="flex items-baseline gap-1 flex-wrap">
-            <span style={{ fontSize: '32px', fontWeight: 700, color: startTimeColor }}>
-              {detail.startTime}
-            </span>
-            <span style={{ fontSize: '32px', fontWeight: 700, color: '#AAB4BF', margin: '0 4px' }}>-</span>
-            <span style={{ fontSize: '32px', fontWeight: 700, color: endTimeColor }}>
-              {detail.endTime}
-            </span>
-            <span className="text-sm text-muted-foreground ml-1">(휴게 {detail.breakMinutes}분)</span>
+            {detail.status === "휴무" ? (
+              <span style={{ fontSize: '32px', fontWeight: 700, color: '#DBDCDF' }}>-</span>
+            ) : (
+              <>
+                <span style={{ fontSize: '32px', fontWeight: 700, color: startTimeColor }}>
+                  {detail.startTime}
+                </span>
+                <span style={{ fontSize: '32px', fontWeight: 700, color: '#AAB4BF', margin: '0 4px' }}>-</span>
+                <span style={{ fontSize: '32px', fontWeight: 700, color: endTimeColor }}>
+                  {detail.endTime}
+                </span>
+                <span className="text-sm text-muted-foreground ml-1">(휴게 {detail.breakMinutes}분)</span>
+              </>
+            )}
           </div>
 
           {/* Divider */}
           <div className="border-t border-border my-4" />
 
           {/* Detail rows */}
+          {detail.status !== "휴무" && (
           <div className="space-y-3">
             <div className="flex justify-between">
               <span className="text-sm text-muted-foreground">출근</span>
@@ -152,6 +159,7 @@ const AttendanceDetailSheet = ({ open, detail, onClose, onRequestEdit }: Attenda
               </span>
             </div>
           </div>
+          )}
         </div>
 
         {/* Action button — 항상 하단 고정 */}
