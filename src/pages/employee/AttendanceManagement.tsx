@@ -383,7 +383,7 @@ const AttendanceManagement = () => {
 
       {/* 캘린더 탭 */}
       {activeTab === "calendar" && (
-        <div className="pb-8">
+        <div className="pb-24">
           <div className="flex items-center justify-between px-5 py-4">
             <button onClick={goToPrevMonth} className="pressable p-1"><ChevronLeft className="h-5 w-5 text-foreground" /></button>
             <span style={{ fontSize: '17px', fontWeight: 700, color: '#19191B' }}>{currentYear}년 {currentMonth}월 ▾</span>
@@ -426,10 +426,14 @@ const AttendanceManagement = () => {
                   return (
                     <div key={di} className="pressable flex flex-col items-center py-1.5 min-h-[90px] cursor-pointer" onClick={() => openSheetByDay(day)}>
                       <div style={{ height: '22px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '4px' }}>
-                        <span style={{ fontSize: '14px', fontWeight: 500, letterSpacing: '-0.02em', color: isToday ? '#FFFFFF' : isSunday ? '#FF5959' : isSaturday ? '#5DB1FF' : '#70737B', ...(isToday ? { backgroundColor: '#4261FF', borderRadius: '10px', minWidth: '40px', width: '40px', height: '22px', display: 'flex', alignItems: 'center', justifyContent: 'center' } : {}) }}>{day}</span>
+                        <span style={{
+                          fontSize: '14px', fontWeight: 500, letterSpacing: '-0.02em',
+                          color: isToday ? '#FFFFFF' : isHoliday ? '#DBDCDF' : isSunday ? '#FF5959' : isSaturday ? '#5DB1FF' : '#70737B',
+                          textDecoration: isHoliday ? 'line-through' : 'none',
+                          ...(isToday ? { backgroundColor: '#4261FF', borderRadius: '10px', minWidth: '40px', width: '40px', height: '22px', display: 'flex', alignItems: 'center', justifyContent: 'center' } : {})
+                        }}>{day}</span>
                       </div>
                       <div className="flex flex-col items-center w-full px-0.5" style={{ gap: '2px', marginTop: '4px' }}>
-                        {isHoliday && <span style={tagStyle('#FFE8E8', '#FF5959')}>휴무</span>}
                         {!isHoliday && isFuture && dayData?.hours && <span style={tagStyle('#F7F7F8', '#AAB4BF')}>{dayData.hours}</span>}
                         {!isHoliday && !isFuture && (
                           <>
