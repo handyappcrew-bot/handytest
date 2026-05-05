@@ -55,8 +55,8 @@ const SalaryPreview = ({ userName, month, totalAmount, stores }: SalaryPreviewPr
 
         {/* Store list */}
         <div className="mt-4 flex flex-col gap-3">
-          {stores.map((store) => (
-            <div key={store.name} className="flex items-start justify-between">
+          {stores.map((store, idx) => (
+            <div key={idx} className="flex items-start justify-between">
               <div>
                 <div className="flex items-center gap-1.5">
                   <div className="h-2 w-2 rounded-full" style={{ backgroundColor: '#4261FF', flexShrink: 0 }} />
@@ -68,7 +68,9 @@ const SalaryPreview = ({ userName, month, totalAmount, stores }: SalaryPreviewPr
               </div>
               <div className="text-right">
                 <p style={{ fontSize: '14px', fontWeight: 600, color: '#19191B' }}>{store.amount.toLocaleString()}원</p>
-                <p style={{ fontSize: '12px', fontWeight: 500, color: '#9EA3AD' }}>총 {store.hours} 근무</p>
+                <p style={{ fontSize: '12px', fontWeight: 500, color: '#9EA3AD' }}>
+                  {store.hours ? `총 ${store.hours} 근무` : '-'}
+                </p>
               </div>
             </div>
           ))}
