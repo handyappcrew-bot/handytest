@@ -399,7 +399,7 @@ const AttendanceCard = ({
           <>
             <button
               disabled
-              className="h-12 flex-1 rounded-xl text-base font-semibold" style={{ backgroundColor: '#DBDCDF', color: '#93989E' }}
+              className="h-12 flex-1 rounded-xl bg-muted text-base font-semibold text-muted-foreground"
             >
               {completedBreakMinutes}분 휴게 완료
             </button>
@@ -416,7 +416,7 @@ const AttendanceCard = ({
             {completedBreakMinutes > 0 && (
               <button
                 disabled
-                className="h-12 flex-1 rounded-xl text-base font-semibold" style={{ backgroundColor: '#DBDCDF', color: '#93989E' }}
+                className="h-12 flex-1 rounded-xl bg-muted text-base font-semibold text-muted-foreground"
               >
                 {completedBreakMinutes}분 휴게 완료
               </button>
