@@ -267,23 +267,26 @@ const Index = () => {
   }, []);
 
   const buildWeeklyDays = () => {
-    const dayNames = ["일", "월", "화", "수", "목", "금", "토"];
+    const dayNames = ["월", "화", "수", "목", "금", "토", "일"];
     const today = new Date();
-    const todayDow = today.getDay();
-    const sunday = new Date(today);
-    sunday.setDate(today.getDate() - todayDow);
+    const todayDow = today.getDay(); // 0=일,1=월,...,6=토
+    // 월요일 기준
+    const diffToMonday = todayDow === 0 ? -6 : 1 - todayDow;
+    const monday = new Date(today);
+    monday.setDate(today.getDate() + diffToMonday);
 
     return dayNames.map((dayName, i) => {
-      const date = new Date(sunday);
-      date.setDate(sunday.getDate() + i);
-      const work = weeklyWork.find(w => w.day_of_week === i);
+      const date = new Date(monday);
+      date.setDate(monday.getDate() + i);
+      const dow = date.getDay(); // 0=일,...,6=토
+      const work = weeklyWork.find(w => w.day_of_week === dow);
       const startTime = work?.work_start?.slice(0, 5);
       const endTime = work?.work_end?.slice(0, 5);
       return {
         day: dayName,
         date: date.getDate(),
-        isToday: i === todayDow,
-        isWeekend: i === 0 || i === 6,
+        isToday: date.toDateString() === today.toDateString(),
+        isWeekend: dow === 0 || dow === 6,
         startTime,
         endTime,
       };
@@ -292,13 +295,15 @@ const Index = () => {
 
   const buildDateRange = () => {
     const today = new Date();
-    const sunday = new Date(today);
-    sunday.setDate(today.getDate() - today.getDay());
-    const saturday = new Date(sunday);
-    saturday.setDate(sunday.getDate() + 6);
+    const todayDow = today.getDay();
+    const diffToMonday = todayDow === 0 ? -6 : 1 - todayDow;
+    const monday = new Date(today);
+    monday.setDate(today.getDate() + diffToMonday);
+    const sunday = new Date(monday);
+    sunday.setDate(monday.getDate() + 6);
     const fmt = (d: Date) =>
       `${String(d.getMonth() + 1).padStart(2, "0")}.${String(d.getDate()).padStart(2, "0")}`;
-    return `${fmt(sunday)}~${fmt(saturday)}`;
+    return `${fmt(monday)}~${fmt(sunday)}`;
   };
 
   // auth 로드 전 로딩 스켈레톤
