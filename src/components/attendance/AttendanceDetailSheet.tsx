@@ -35,7 +35,7 @@ const STATUS_BADGE: Record<AttendanceStatus, { bg: string; color: string; label:
   "퇴근":     { bg: '#ECFFF1', color: '#1EDC83', label: '근무완료' },
   "근무완료": { bg: '#ECFFF1', color: '#1EDC83', label: '근무완료' },
   "휴가":     { bg: '#F7F7F8', color: '#AAB4BF', label: '휴가' },
-  "휴무":     { bg: '#FFE8E8', color: '#FF5959', label: '휴무' },
+  "휴무":     { bg: '#F7F7F8', color: '#AAB4BF', label: '휴무' },
   "휴게중":   { bg: '#FFEEE2', color: '#FF862D', label: '휴게중' },
 };
 
