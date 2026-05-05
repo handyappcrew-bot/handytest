@@ -176,6 +176,10 @@
 }
 
 @layer base {
+  *:not(span) {
+    @apply border-border;
+  }
+
   *,
   *::before,
   *::after {

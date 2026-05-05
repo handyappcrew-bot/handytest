@@ -134,7 +134,7 @@ const AttendanceCard = ({
 
   // Status badge
   const getBadge = () => {
-    const style = { minWidth: '57px', height: '28px', marginLeft: '0px', marginTop: '0px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', borderRadius: '9999px', fontSize: '14px', fontWeight: 600, letterSpacing: '-0.01em', padding: '0 12px', border: 'none', outline: 'none', boxSizing: 'border-box' as const };
+    const style = { minWidth: '57px', height: '28px', marginLeft: '0px', marginTop: '0px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', borderRadius: '9999px', fontSize: '14px', fontWeight: 600, letterSpacing: '-0.01em', padding: '0 12px', border: '0px solid transparent', outline: 'none', boxSizing: 'border-box' as const, lineHeight: 1, flexShrink: 0 };
     switch (status) {
       case "holiday":
         return <span style={{ ...style, backgroundColor: 'hsl(var(--status-gray))', color: 'hsl(var(--status-gray-text))' }}>휴일</span>;
@@ -151,7 +151,7 @@ const AttendanceCard = ({
         return <span style={{ ...style, backgroundColor: 'hsl(var(--status-purple-light))', color: 'hsl(var(--status-purple))' }}>휴게중</span>;
       case "overtime":
       case "off_work":
-        return <span style={{ ...style, backgroundColor: '#EEF1FF', color: 'hsl(var(--primary))' }}>퇴근</span>;
+        return <span style={{ ...style, backgroundColor: '#D3DAFF', color: '#4261FF' }}>퇴근</span>;
     }
   };
 
