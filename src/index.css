@@ -56,20 +56,25 @@
     --radius: 0.75rem;
 
     /* Status colors */
-    --status-green: 155 85% 43%;
-    --status-green-light: 141 63% 94%;
+    --status-green: 142 71% 45%;
+    --status-green-light: 142 76% 94%;
     --status-orange: 25 100% 59%;
     --status-orange-light: 25 100% 94%;
     --status-blue: 230 100% 63%;
-    --status-red: 0 100% 62%;
+    --status-red: 0 84% 60%;
     --status-gray: 220 13% 91%;
     --status-gray-text: 220 9% 46%;
-    --status-late: 25 100% 59%;
-    --status-late-light: 25 100% 94%;
-    --status-absent: 0 100% 62%;
-    --status-absent-light: 10 100% 95%;
+    --status-late: 24 95% 53%;
+    --status-late-light: 33 100% 96%;
+    --status-absent: 0 84% 60%;
+    --status-absent-light: 0 86% 95%;
     --status-purple: 271 65% 60%;
     --status-purple-light: 270 80% 96%;
+
+    /* Notice colors */
+    --notice-author: 0 0% 55%;
+    --notice-time: 0 0% 70%;
+    --notice-content: 240 7% 10%;
 
     /* Shift colors */
     --shift-open: 42 100% 50%;
