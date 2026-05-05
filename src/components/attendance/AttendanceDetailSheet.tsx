@@ -49,6 +49,7 @@ const badgeStyle = (bg: string, color: string) => ({
   display: 'inline-flex' as const, alignItems: 'center', justifyContent: 'center',
   height: '24px', borderRadius: '4px', padding: '0 8px',
   fontSize: '13px', fontWeight: 500, backgroundColor: bg, color,
+  border: 'none' as const,
 });
 
 const AttendanceDetailSheet = ({ open, detail, onClose, onRequestEdit }: AttendanceDetailSheetProps) => {
