@@ -1,0 +1,59 @@
+{
+  "expo": {
+    "name": "Handy Staff",
+    "slug": "handytest-mobile",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "icon": "./src/assets/icon.png",
+    "userInterfaceStyle": "light",
+    "scheme": "handytest",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./src/assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#FFFFFF"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.handytest.mobile",
+      "usesAppleSignIn": true,
+      "googleServicesFile": "./GoogleService-Info.plist"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./src/assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "package": "com.handytest.mobile",
+      "softwareKeyboardLayoutMode": "resize",
+      "googleServicesFile": "./google-services.json"
+    },
+    "plugins": [
+      "expo-image-picker",
+      "expo-location",
+      "expo-secure-store",
+      "expo-font",
+      "expo-asset",
+      "expo-apple-authentication",
+      "expo-notifications",
+      [
+        "react-native-google-mobile-ads",
+        {
+          "androidAppId": "ca-app-pub-2835570189350834~9240926738",
+          "iosAppId": "ca-app-pub-2835570189350834~6115539714"
+        }
+      ],
+      "@react-native-firebase/app",
+      "@react-native-firebase/crashlytics",
+      "expo-updates"
+    ],
+    "extra": {
+      "apiUrl": "https://api.handyappservice.com",
+      "kakaoMapApiKey": "1755dbef63499c741abb48b4c3ea0dd1",
+      "kakaoRestApiKey": "b0b71aba5dce7f73fb96dcffcdab1a4a",
+      "eas": {
+        "projectId": "cc63ecf5-fa97-43c7-9fe5-b608b25d80fa"
+      }
+    }
+  }
+}

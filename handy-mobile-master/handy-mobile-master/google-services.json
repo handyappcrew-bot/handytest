@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1055820683335",
+    "project_id": "handy-android-f0d77",
+    "storage_bucket": "handy-android-f0d77.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1055820683335:android:909fa090f351b3c38b3962",
+        "android_client_info": {
+          "package_name": "com.handytest.mobile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkzn8qhUeRJJmYPV6NI53nAKKJ10QkxW0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
